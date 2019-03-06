@@ -64,57 +64,6 @@ A continuación se presentan los contenidos del curso, no necesariamente en el o
       * Backtracking
 * Strings
 
-## Evaluación
-
-El curso consta de una parte teórica, evaluada mediante interrogaciones y un examen, y una parte práctica, evaluada mediante tareas de programacion en C.
-
-### Pruebas
-
-Habrá 3 interrogaciones y un examen, donde se evaluarán los aspectos más teóricos del contenido.
-
-| Evaluación | Fecha | 
-|:----------|:----------|
-| I1 | - |
-| I2 | - |
-| I3 | - |
-| Examen | - |
-
-### Tareas
-
-Habrá 5 tareas de programación en C, donde deberán resolver un problema complejo y analizarlo en un informe escrito. Las fechas serán anunciadas durante el semestre.
-
----
-
-La nota final del curso se calcula de la siguiente manera:
-
-```C
-double nota_final()
-{
-    /* La nota de cada tarea */
-    double T0,T1,T2,T3,T4;    
-    /* La nota de cada evaluación escrita */
-    double I1,I2,I3,Ex;
-
-    /* Promedio de tareas */
-    double NT = (T0 + T1 + T2 + T3 + T4) / 5;
-    /* Promedio de cátedra */
-    double NC = (I1 + I2 + I3 + 2 * Ex - min(I1,I2,I3,Ex)) / 4;
-
-    /* Ponderación de cátedra y tareas */
-    double NF = (NC + NT) / 2;
-    
-    /* La nota de cátedra es reprobatoria */
-    if (NC < 4 || NF < 4)
-    {
-       return min(NC, NF);
-    }
-    else
-    {
-       return max(NF, 7);
-    }
-}
-```
-
 ## Política de integridad académica
 
 Este curso se adscribe a la política de integridad académica de la Escuela de Ingeniería y el Departamento de Computación.
