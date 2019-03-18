@@ -35,6 +35,14 @@ void sumar_1_con_puntero(uint8_t* i)
   i += 1;
 }
 
+/** Intercambia los valores de dos variables */
+void swap(uint32_t* a, uint32_t* b)
+{
+  uint32_t aux = *a;
+  *a = *b;
+  *b = aux;
+}
+
 /** Esta función es lo que se llama al ejecutar tu programa */
 int main()
 {
@@ -93,6 +101,14 @@ int main()
   // Si usaramos un solo * estariamos accediendo a "y2"
   printf("x = %d\n", ***y3);
   
+  
+  uint32_t A = 12379;
+  uint32_t B = 19832;
+
+  swap(&A, &B);
+
+  printf("A = %d\nB = %d\n", A, B);
+
   ////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////  PELIGRO  /////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////
