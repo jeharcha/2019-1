@@ -12,7 +12,7 @@ Asegurate de echar una mirada a la [Wiki](https://github.com/IIC2133-PUC/2019-1/
  * [Acerca del curso](#acerca-del-curso) 
  * [Contenidos](#contenidos)
  * [Evaluación](#evaluación)
-     * [Pruebas](#pruebas)
+     * [Evaluaciones escritas](#evaluaciones-escritas)
      * [Tareas](#tareas)
  * [Política de Integridad Académica](#política-de-integridad-académica)
 
@@ -33,9 +33,19 @@ El curso utiliza el lenguaje de programación C, ya que éste permite trabajar d
 
 ### Ayudantes
 
-| Nombre                | Email       |
-|:--------------------- |:-------------|
-| - | - |
+| Nombre                | Email       | Github |
+|:--------------------- |:-------------| :---------|
+| Vicente Errázuriz | verrazuriz7@uc.cl | [@vichoeq](https://www.github.com/vichoeq) |
+| Antonio López | alopez27@uc.cl | [@alopez7](https://www.github.com/alopez7) |
+| Ignacio Hermosilla | ithermosilla@uc.cl | [@ignaciohermosillacornejo](https://www.github.com/ignaciohermosillacornejo) |
+| Manuel Becker | mabecker@uc.cl| [@ManuelBeckerT](https://www.github.com/ManuelBeckerT) |
+| Juan Espinosa | jgespinosa@uc.cl | [@jgespinosa10](https://www.github.com/jgespinosa10) |
+| Jose Vigneaux | jtvigneaux@uc.cl | [@jtvigneaux](https://www.github.com/jtvigneaux) |
+| José Morales | jmmorales@uc.cl | [@josemlira](https://www.github.com/josemlira) |
+| Vicente Lubascher | velubascher@uc.cl | [@velubascher](https://www.github.com/velubascher) |
+| Cristóbal Espinoza | caespinoza5@uc.cl | [@caespinoza5](https://www.github.com/caespinoza5) |
+| Jaime Middleton | jamiddleton@uc.cl | [@Jamidd](https://www.github.com/Jamidd) |
+
 
 ## Contenidos
 
@@ -64,6 +74,71 @@ A continuación se presentan los contenidos del curso, no necesariamente en el o
       * Backtracking
 * Strings
 
+## Evaluación
+
+El curso consta de una parte teórica, evaluada mediante evaluaciones escritas (también conocidas como controles), y una parte práctica, evaluada mediante tareas de programacion en C, y asistencia a los talleres de los días viernes.
+
+### Evaluaciones Escritas
+
+Habrá 7 controles y un examen, donde se evaluarán los aspectos más teóricos del contenido.
+
+| Evaluación | Fecha | 
+|:----------|:----------|
+| C1 | 20 de marzo a las 14:00 |
+| C2 | 3 de abril a las 14:00 |
+| C3 | 17 de abril a las 14:00 |
+| C4 | 6 de mayo a las 14:00 |
+| C5 | 22 de mayo a las 14:00 |
+| C6 | 5 de junio a las 14:00 |
+| C7 | 19 de junio a las 14:00 |
+| Examen | 26 de junio a las 9:00 |
+
+### Tareas
+
+Habrá 5 tareas de programación en C, donde deberán resolver un problema complejo y analizarlo en un informe escrito. Las fechas serán anunciadas durante el semestre. Además, durante las primeras dos semanas se hará una actividad introductoria a C, la cual será evaluada.
+
+---
+
+La nota final del curso se calcula de la siguiente manera:
+
+```c++
+double nota_final()
+{
+    /* La nota de la asistencia a los talleres */
+    double AT;
+    /* La nota de cada tarea */
+    double T0,T1,T2,T3,T4;    
+    /* La nota de cada evaluación escrita */
+    double C1,C2,C3,C4,C5,C6,C7,Ex;
+
+    /* Promedio de tareas */
+    double NT = (T0 + T1 + T2 + T3 + T4 + AT - min(T0, T1, T2, T3, T4, AT)) / 5;
+    /* Promedio de controles */
+    double NC = (C1 + C2 + C3 + C4 + C5 + C6 + C7 - min(C1, C2, C3, C4, C5, C6, C7)) / 6;
+    /* Promedio de las evaluaciones escritas */
+    double NE;
+    if(Ex >= NC)
+    {
+        NE = (Ex + NC) / 2;
+    }
+    else
+    {
+        NE = (Ex + 2NC) / 3;
+    }
+    
+    double NF = (NT + NE) / 2;
+    
+    /* Es necesario aprobar las evaluaciones escritas por separado para aprobar el curso */
+    if(NE < 4 || NF < 4)
+    {
+       return min(NE, NF);
+    }
+    else
+    {
+       return min(NF, 7);
+    }
+}
+```
 ## Política de integridad académica
 
 Este curso se adscribe a la política de integridad académica de la Escuela de Ingeniería y el Departamento de Computación.
