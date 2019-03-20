@@ -135,7 +135,7 @@ double nota_final()
     }
     else
     {
-       return max(NF, 7);
+       return min(NF, 7);
     }
 }
 ```
