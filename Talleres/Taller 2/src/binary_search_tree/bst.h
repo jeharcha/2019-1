@@ -1,5 +1,5 @@
 #pragma once
-
+#include <stdbool.h>
 /** Estructura de Árbol binario, con llave, valor, y sus dos hijos */
 typedef struct binary_tree
 {
@@ -20,7 +20,7 @@ BST* bst_init(int key, int value);
 void bst_insert(BST* tree, int new_key, int value);
 
 /** Busca en el arbol el nodo con la key dada y retorna el nodo o NULL */
-BST* bst_search(BST* tree, int key, int insert);
+BST* bst_search(BST* tree, int key, bool insert);
 
 /** Destruye recursivamente el arbol */
 void bst_destroy(BST* tree);

@@ -17,18 +17,16 @@ int main(int argc, char *argv[])
 		bst_insert(tree, pcg32_boundedrand(1000), pcg32_boundedrand(1000));
 	}
 
-	// Buscamos una llave e imprimimos key, value si la encontramos
-	BST* result = bst_search(tree, 210, 0);
-	if(result)
-	{
+	BST* result= bst_search(tree, 210, false);
+	
+	if (result){
 		printf("%d, %d\n", result->key, result->value);
 	}else{
-		printf("No existe esa llave.");
+		printf("No existe la llave\n");
 	}
-
-	// Imprimimos el arbol de izquierda a derecha
-	bst_in_order(tree);
-
+	
+	//bst_in_order(tree);
+	//printf("\n");
 	// Eliminamos el árbol
 	bst_destroy(tree);
 	return 0;

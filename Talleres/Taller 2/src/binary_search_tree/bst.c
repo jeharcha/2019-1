@@ -6,68 +6,65 @@
 BST* bst_init(int key, int value)
 {
 	BST* tree = malloc(sizeof(BST));
-	tree->key = key;
-	tree->value = value;
-	tree->left = NULL;
-	tree->right = NULL;
-	return tree;
-}
 
-/** Busca en el arbol el nodo con la key dada y retorna el nodo o NULL */
-BST* bst_search(BST* tree, int key, int insert)
-{
-	if(tree->key == key)
-	{
-		return tree;
-	}
-	else if(key < tree->key)
-	{
-		if(tree->left)
-		{
-			return bst_search(tree->left, key, insert);
-		}else{
-			if(insert)
-			{
-				tree->left = bst_init(key, 0);
-			}
-			return tree->left;
-		}
-	}
-	else
-	{
-		if(tree->right)
-		{
-			return bst_search(tree->right, key, insert);
-		}else{
-			if(insert)
-			{
-				tree->right = bst_init(key, 0);
-			}
-			return tree->right;
-		}
-	}
+	tree -> key = key;
+	tree -> value = value;
+
+	tree -> right = NULL;
+	tree -> left = NULL;
+
+	return tree;
 }
 
 /** Inserta en el arbol dado la key y value indicadas */
 void bst_insert(BST* tree, int new_key, int new_value)
 {
-	BST* result = bst_search(tree, new_key, 1);
-	result->value = new_value;
+	BST* arbol = bst_search(tree, new_key, true);
+	arbol -> value = new_value;
+}
+
+/** Busca en el arbol el nodo con la key dada y retorna el nodo o NULL */
+BST* bst_search(BST* tree, int key, bool insert)
+{
+	if (tree -> key == key){
+		return  tree;
+	}
+	if (key < tree -> key){
+		if (tree -> left){
+			return bst_search(tree -> left, key, insert);
+		}
+		else{
+			if (insert){
+				tree -> left = bst_init(key, 0);
+			}
+			return tree -> left;
+		}
+	}
+	else if (key > tree -> key){
+		if (tree -> right){
+			return bst_search(tree -> right, key, insert);
+		}
+		else{
+			if(insert){
+				tree -> right = bst_init(key, 0);
+			}
+			return tree -> right;
+		}
+	}
+	abort();
 }
 
 /** Destruye recursivamente el arbol */
 void bst_destroy(BST* tree)
 {
-	if(tree)
-	{
-		bst_destroy(tree->left);
-		bst_destroy(tree->right);
+	if(tree){
+		bst_destroy(tree -> left);
+		bst_destroy(tree -> right);
 		free(tree);
 	}
-
 }
 
-/** imprime los valores del arbol en el orden ascendente de
+/** Imprime los valores del arbol en el orden ascendente de
 las claves*/
 void bst_in_order(BST* tree)
 {
