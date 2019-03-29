@@ -64,6 +64,8 @@ int main(int argc, char *argv[])
     //Imprimimos salto de línea
     printf("\n");
 
+
+
     // Aumentamos N en delta
     N += delta;
   }
