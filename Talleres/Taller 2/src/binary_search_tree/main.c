@@ -25,8 +25,9 @@ int main(int argc, char *argv[])
 		printf("No existe la llave\n");
 	}
 	
-	//bst_in_order(tree);
-	//printf("\n");
+	printf("A continuación, el árbol binario de búsqueda en orden:\n");
+	bst_in_order(tree);
+
 	// Eliminamos el árbol
 	bst_destroy(tree);
 	return 0;

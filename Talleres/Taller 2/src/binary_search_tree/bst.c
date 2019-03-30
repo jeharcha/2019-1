@@ -29,7 +29,7 @@ BST* bst_search(BST* tree, int key, bool insert)
 	if (tree -> key == key){
 		return  tree;
 	}
-	if (key < tree -> key){
+	else if (key < tree -> key){
 		if (tree -> left){
 			return bst_search(tree -> left, key, insert);
 		}
@@ -40,7 +40,7 @@ BST* bst_search(BST* tree, int key, bool insert)
 			return tree -> left;
 		}
 	}
-	else if (key > tree -> key){
+	else {
 		if (tree -> right){
 			return bst_search(tree -> right, key, insert);
 		}
@@ -51,7 +51,6 @@ BST* bst_search(BST* tree, int key, bool insert)
 			return tree -> right;
 		}
 	}
-	abort();
 }
 
 /** Destruye recursivamente el arbol */
@@ -68,5 +67,10 @@ void bst_destroy(BST* tree)
 las claves*/
 void bst_in_order(BST* tree)
 {
-
+	if(tree)
+	{
+		bst_in_order(tree->left);
+		printf("%d, %d\n", tree->key, tree->value);
+		bst_in_order(tree->right);
+	}
 }
